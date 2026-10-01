@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍄 Mario on Coke 🤖
+# 🍄Mario on Coke🤖
 
 ### Teaching a Neural Network to play Super Mario using Neuroevolution
 
