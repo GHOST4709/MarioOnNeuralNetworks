@@ -1,0 +1,33 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# NEAT Checkpoints & Model Dumps
+neat-checkpoint-*
+*.pkl
+*.pickle
+
+# Output Visualizations & Logs
+*.png
+*.svg
+*.log
+digraph.gv*
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
