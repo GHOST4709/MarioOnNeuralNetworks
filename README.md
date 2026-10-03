@@ -4,7 +4,7 @@
 
 ### Teaching a Neural Network to play Super Mario using Neuroevolution
 
-*Sometimes the best way to learn AI is to let Mario repeatedly run into a Goomba until evolution figures it out.*
+*Sometimes the best way to learn AI is to let Mario repeatedly run into a Ditch until he figures it out that he should'nt.*
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
 ![NEAT](https://img.shields.io/badge/Algorithm-NEAT-red)
@@ -40,36 +40,22 @@
 
 **Mario on Coke** is a fun learning project where I experiment with **Machine Learning**, **Neural Networks**, and **Neuroevolution** to teach an AI agent how to play *Super Mario Bros.*
 
-The goal isn't to solve a real-world problem. It's to explore how intelligent agents can **learn through trial and error**, **evolve over generations**, and gradually **improve their gameplay performance**.
-
-As the project progresses, I'll be experimenting with different configurations, training strategies, and visualizations to better understand how AI learns in game environments.
+The goal isn't to solve a real-world problem(I mean yeah what could this NN do save the world or Get me Bitches????). It's to explore how intelligent agents can learn through trial and error , evolve over generations , and gradually improve their gameplay performance. OR In other LAME TERMS **Computer can Also Fuck Around and Find Out**.
 
 ---
 
 ## 💡 Why This Project?
 
-I wanted a hands-on way to learn about:
+I saw an 11 Year Old video where a Creator called SethBlink Did this in Lua language and Since i have this Burning Curiosity on HOW TO DO IT, I thought why not give it a try. I learned many things During this path.
 
-- 🧠 Neural Networks
-- 🧬 Neuroevolution
-- 🎯 Reinforcement Learning concepts
-- 🕹️ AI agents and game environments
-- 📈 Training and evaluating machine learning models
-- 🐍 Python libraries used in AI research
+-  Neural Networks
+-  Neuroevolution
+-  Reinforcement Learning concepts
+-  AI agents and game environments
+-  Training and evaluating machine learning models(Which is fuckin bad)
+-  Python libraries used in AI research
 
-And honestly, teaching Mario to play Mario sounded fun.
-
----
-
-## ✨ Features
-
-- 🤖 AI-controlled Super Mario gameplay
-- 🧠 Neural Network based decision making
-- 🧬 Evolutionary training using **NEAT**
-- 🏆 Fitness-based agent selection
-- 🎥 Gameplay visualization
-- 📊 Training statistics and performance tracking
-- 🧪 Experimental playground for AI learning
+And frankly Speaking, teaching Mario to play Mario sounded fun about 10% of the Time, The Rest 90% was Hell👍.
 
 ---
 
@@ -206,7 +192,7 @@ python main.py
 
 ---
 
-## 🩺 Troubleshooting
+## 🩺 Troubleshooting That Occured In Development
 
 <details>
 <summary><b>Installation of <code>nes-py</code> fails</b></summary>
@@ -231,18 +217,6 @@ python main.py
 Install the Graphviz system package (not just the Python wrapper) and make sure it's on your `PATH`.
 
 </details>
-
----
-
-## 🤝 Contributing
-
-This is mainly a personal learning project, but suggestions, ideas, and feedback are welcome!
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/cool-idea`)
-3. Commit your changes (`git commit -m "Add cool idea"`)
-4. Push to the branch (`git push origin feature/cool-idea`)
-5. Open a Pull Request
 
 ---
 
