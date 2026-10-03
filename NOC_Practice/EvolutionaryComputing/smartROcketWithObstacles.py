@@ -19,7 +19,7 @@ def random_force():
     return Vector2(math.cos(angle), math.sin(angle)) * random.uniform(0, MAX_FORCE)
 
 class Obstacle:
-    # THE OBstacle that is rectangle in shape(cuz i don'nt know what other shape will be good)
+    # THE OBstacle that is rectangle in shape(cuz i don'nt know what other shape will be good (other tha cicle))
     def __init__(self, x, y, w, h):
         self.position = Vector2(x, y)
         self.w = w
