@@ -20,14 +20,12 @@
 
 - [Overview](#-overview)
 - [Why This Project?](#-why-this-project)
-- [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [How It Works](#-how-it-works)
 - [Installation](#-installation)
 - [Running the Project](#-running-the-project)
 - [Project Status](#-project-status)
 - [Learning Goals](#-learning-goals)
-- [Roadmap](#-roadmap)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [Disclaimer](#-disclaimer)
@@ -180,18 +178,6 @@ python main.py
 
 ---
 
-## 🗺️ Roadmap
-
-- [ ] Better fitness functions
-- [ ] Training analytics dashboard
-- [ ] Generation playback system
-- [ ] Performance comparisons
-- [ ] More visualizations
-- [ ] Experiment with different AI approaches
-- [ ] Documentation improvements
-
----
-
 ## 🩺 Troubleshooting That Occured In Development
 
 <details>
@@ -222,9 +208,8 @@ Install the Graphviz system package (not just the Python wrapper) and make sure 
 
 ## ⚠️ Disclaimer
 
-This project is primarily a **personal learning project**. The codebase may change significantly as I continue experimenting and discovering better approaches.
-
-*Super Mario Bros.* is a trademark of Nintendo. This project is not affiliated with or endorsed by Nintendo and is intended for educational purposes only.
+This project is primarily a **personal learning project**. The codebase may change So best of Luck Unnderstanding It.
+*Super Mario Bros.*👍👍
 
 ---
 
@@ -236,7 +221,7 @@ This project is primarily a **personal learning project**. The codebase may chan
 
 ## 📄 License
 
-This project is open for learning, experimentation, and educational purposes.
+    👍
 
 ---
 
