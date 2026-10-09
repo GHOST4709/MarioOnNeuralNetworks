@@ -1,6 +1,6 @@
 import random
 import numpy as np
-import pygame
+# import pygame as pg 
 
 class Perceptron:
     def __init__(self,n,lr):
