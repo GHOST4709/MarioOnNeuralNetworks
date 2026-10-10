@@ -172,7 +172,7 @@ def train(elements, show_all_games, steps, gen_count):
     cols = math.ceil(math.sqrt(len(elements)))
     for step in range(steps):
         if step % 500 == 0:
-            print(f"gen {gen_count} step {step}/{steps}")
+            print(f"gen{gen_count} step {step}/{steps}")
         obst_grids, frames = step_games_and_return_obstacles(elements, show_all_games)
         if all(e.dead for e in elements):      # everyone is finished: end the generation early
             break
@@ -190,10 +190,10 @@ def train(elements, show_all_games, steps, gen_count):
             render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count,
                                 elements[leader_idx].fitness, step, steps)
     close_games(elements, show_all_games)
-
+ 
 def draw_fitness_graph(history, w, h):
     graph = np.full((h, w, 3), 30, dtype=np.uint8)
-    cv2.putText(graph, "best fitness:",(15,28),cv2.FONT_HERSHEY_SIMPLEX, 1, (200,200,200),1,cv2.LINE_AA)
+    cv2.putText(graph, "best fitness: ",(15,28),cv2.FONT_HERSHEY_SIMPLEX, 1, (200,200,200),1,cv2.LINE_AA)
     if len(history) < 2:
         return graph
     low, high = min(history), max(history)

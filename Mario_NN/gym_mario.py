@@ -87,7 +87,7 @@ def tile(frames, cols):
 #         if show_all_games:
 #             frames.append(e.game.env.render())
 #     # time.sleep(0.1)
-#     return obst_grids, frames
+#     return obst_grids, frames 
 
 # def step_games_and_return_obstacles(elements, show_all_games):
 #     obst_grids = []
