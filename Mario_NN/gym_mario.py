@@ -88,28 +88,51 @@ def tile(frames, cols):
 #             frames.append(e.game.env.render())
 #     # time.sleep(0.1)
 #     return obst_grids, frames
+
+# def step_games_and_return_obstacles(elements, show_all_games):
+#     obst_grids = []
+#     frames = []
+#     for e in elements:
+#         if e.game.done:
+#             e.game.state = e.game.env.reset()   # old API: reset() returns only the frame
+#             e.game.info = {}
+#             e.game.done = False
+#         action = e.input
+#         e.game.state, e.game.reward, e.game.done, e.game.info = e.game.env.step(action)  # old API: 4 values
+#         e.game.grid = e.game.get_grid()
+#         obst_grids.append(e.game.grid)
+#         if show_all_games:
+#             frames.append(e.game.env.render(mode='rgb_array'))
+#     return obst_grids, frames
+
 def step_games_and_return_obstacles(elements, show_all_games):
     obst_grids = []
     frames = []
     for e in elements:
         if e.game.done:
-            e.game.state = e.game.env.reset()   # old API: reset() returns only the frame
-            e.game.info = {}
-            e.game.done = False
-        action = e.input
-        e.game.state, e.game.reward, e.game.done, e.game.info = e.game.env.step(action)  # old API: 4 values
-        e.game.grid = e.game.get_grid()
+            if e.started:
+                e.dead = True                       # finished on an earlier step: freeze it
+            else:
+                e.game.state = e.game.env.reset()   # first frame of the generation: start the game
+                e.game.info = {}
+                e.game.done = False
+                e.started = True
+        if not e.dead:
+            action = e.input
+            e.game.state, e.game.reward, e.game.done, e.game.info = e.game.env.step(action)
+            e.game.grid = e.game.get_grid()
         obst_grids.append(e.game.grid)
         if show_all_games:
             frames.append(e.game.env.render(mode='rgb_array'))
     return obst_grids, frames
+
 
 def render_games(frames, cols, gen_count):
     screen = tile(frames, cols=cols)
     screen_height, screen_width, _ = screen.shape
     screen = cv2.cvtColor(screen, cv2.COLOR_RGB2BGR)
     cv2.putText(screen, f"GEN {gen_count}", (10, screen_height - 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
-    cv2.imshow('Like and Subscribe', screen)
+    cv2.imshow('Mario Running into a Ditch👍', screen)
     cv2.waitKey(1)
 
 def close_games(elements, show_all_games):

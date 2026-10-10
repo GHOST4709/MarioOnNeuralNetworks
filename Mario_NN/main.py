@@ -14,6 +14,9 @@ import shutil
 class Element:
     def __init__(self, number_of_inputs, number_of_neurons):
         self.game = Game()
+        # THIS IS FOR OPTIMISATION ONLY AND REMEMBER THAT THIS WILL EFFECT THE FITNESS SCORES OF THE AGENTS PER RUN
+        self.dead = False      #One-life rule: True once this agent has finished. 
+        self.started = False
         self.obstacle_grid = None
         self.input = 0 ##initial input is nothing, after each step we will start generating inputs
 
@@ -144,27 +147,49 @@ def mutate_population(population, n_of_elites):
                 if random.random() < 0.1:
                     e.output_biases[i][j] += random.uniform(-0.05, 0.05)
     
+# def train(elements, show_all_games, steps, gen_count):
+#     cols = math.ceil(math.sqrt(len(elements)))
+#     for step in range(steps):
+#         obst_grids, frames = step_games_and_return_obstacles(elements, show_all_games)
+
+#         for i, e in enumerate(elements): ## FEED obstacle grdis to neural networks. Generate outputs.
+#             e.obstacle_grid = obst_grids[i].flatten()
+#             e.forward(e.obstacle_grid, e.weights, e.biases)
+#             e.activation_ReLU(e.output)
+#             e.forward(e.output, e.hidden_layer_weights, e.output_biases)
+#             # print(e.output)
+#             e.generate_game_input()
+#             e.measure_fitness()
+        
+#         # if show_all_games: #and step % 10 == 0:
+#         #     leader_idx = max(range(len(elements)), key=lambda k: elements[k].fitness)
+#         #     render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count)
+#         if show_all_games:
+#             leader_idx = max(range(len(elements)), key=lambda k: elements[k].fitness)
+#             render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count,elements[leader_idx].fitness, step, steps)
+#     close_games(elements,show_all_games)
 def train(elements, show_all_games, steps, gen_count):
     cols = math.ceil(math.sqrt(len(elements)))
     for step in range(steps):
+        if step % 500 == 0:
+            print(f"gen {gen_count} step {step}/{steps}")
         obst_grids, frames = step_games_and_return_obstacles(elements, show_all_games)
-
-        for i, e in enumerate(elements): ## FEED obstacle grdis to neural networks. Generate outputs.
+        if all(e.dead for e in elements):      # everyone is finished: end the generation early
+            break
+        for i, e in enumerate(elements):
+            if e.dead:                         # one life only: finished agents are skipped
+                continue
             e.obstacle_grid = obst_grids[i].flatten()
             e.forward(e.obstacle_grid, e.weights, e.biases)
             e.activation_ReLU(e.output)
             e.forward(e.output, e.hidden_layer_weights, e.output_biases)
-            # print(e.output)
             e.generate_game_input()
             e.measure_fitness()
-        
-        # if show_all_games: #and step % 10 == 0:
-        #     leader_idx = max(range(len(elements)), key=lambda k: elements[k].fitness)
-        #     render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count)
         if show_all_games:
             leader_idx = max(range(len(elements)), key=lambda k: elements[k].fitness)
-            render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count,elements[leader_idx].fitness, step, steps)
-    close_games(elements,show_all_games)
+            render_with_feature(frames, cols, frames[leader_idx], fitness_history, gen_count,
+                                elements[leader_idx].fitness, step, steps)
+    close_games(elements, show_all_games)
 
 def draw_fitness_graph(history, w, h):
     graph = np.full((h, w, 3), 30, dtype=np.uint8)
