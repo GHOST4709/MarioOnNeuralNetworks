@@ -329,8 +329,8 @@ gen_count = 0
 fitness_history = []
 best_fitness = []
 rolling_avg_fitness = []
-elements = create_population(n)      # fresh start
-# elements = load_population()       # only use this when resuming
+# elements = create_population(n)      # fresh start
+elements = load_population()       # only use this when resuming
 start_time = time.time()
 duration = 24 * 60 * 60
 
