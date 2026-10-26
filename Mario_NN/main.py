@@ -325,12 +325,12 @@ def load_top_from_population(path="last_population.npz"):
 # Steps = 300 and n = 4 for trainning/test/Smoke Test purposes the Original test will be Done with steps = 2000 & n = 30
 steps = 2000
 n = 30
-gen_count = 0
+gen_count = 1190
 fitness_history = []
 best_fitness = []
 rolling_avg_fitness = []
 # elements = create_population(n)      # fresh start
-elements = load_population()       # only use this when resuming
+elements = load_population("backup_pop_gen1190.npz")       # only use this when resuming
 start_time = time.time()
 duration = 24 * 60 * 60
 
